@@ -3,6 +3,7 @@ import { withTag } from '../hoc';
 
 export * from './Home';
 export * from './NotFound';
+export * from './Layout';
 
 const News = withTag('news')(Home);
 const Regions = withTag('regions')(Home);
