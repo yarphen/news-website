@@ -26,6 +26,7 @@ class Home extends PureComponent {
   componentDidMount() {
     const { actions, tag } = this.props;
     const { limit, offset } = this.state;
+    actions.content.clearItems();
     actions.content.fetchItems({
       q: qFromProps(this.props), tag, limit, offset,
     });
