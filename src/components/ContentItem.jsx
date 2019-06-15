@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextEllipsis from 'react-text-ellipsis';
 
 import { formatDate } from '../util/format';
 
@@ -14,7 +15,17 @@ export const ContentItem = (props) => {
       <div className="content-item-image"><a href="#"><img src={image} /></a></div>
       <div className="content-item-article">
         <div className="content-item-mobile-title"><a href="#">{title}</a></div>
-        <div className="content-item-text">{text}</div>
+        <div className="content-item-text">
+          <TextEllipsis
+            lines={10}
+            tag="p"
+            ellipsisChars="..."
+            tagClass="className"
+            debounceTimeoutOnResize={200}
+            useJsOnly>
+            {text}
+          </TextEllipsis>
+        </div>
         <div className="content-item-updated">
           <span>Updated: </span>
           <span>{formatDate(updated)}</span>

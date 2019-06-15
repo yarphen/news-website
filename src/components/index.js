@@ -1,4 +1,3 @@
-export * from './MyComponent';
 export * from './ContentItem';
 export * from './LoadMore';
 export * from './Sidebar';
