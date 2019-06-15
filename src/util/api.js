@@ -107,20 +107,23 @@ const mockData = [{
   updated: new Date(),
 }];
 
-const fetchItems = (q, tag, limit, offset) => mockData.filter((item) => {
-  let matchQ = true;
-  let matchTag = true;
-  if (tag) {
-    matchTag = !!item.tags[tag];
-  }
-  if (q) {
-    const { title, text } = item;
-    const titleLC = title.toLowerCase();
-    const textLC = text.toLowerCase();
-    const qLC = q.toLowerCase();
-    matchQ = titleLC.includes(qLC) || textLC.includes(qLC);
-  }
-  return matchTag && matchQ;
-}).slice(offset, offset + limit);
+const fetchItems = async (q, tag, limit, offset) => {
+  await new Promise(resolve => setTimeout(resolve, 300));
+  return mockData.filter((item) => {
+    let matchQ = true;
+    let matchTag = true;
+    if (tag) {
+      matchTag = !!item.tags[tag];
+    }
+    if (q) {
+      const { title, text } = item;
+      const titleLC = title.toLowerCase();
+      const textLC = text.toLowerCase();
+      const qLC = q.toLowerCase();
+      matchQ = titleLC.includes(qLC) || textLC.includes(qLC);
+    }
+    return matchTag && matchQ;
+  }).slice(offset, offset + limit);
+};
 
 export const api = { fetchItems };

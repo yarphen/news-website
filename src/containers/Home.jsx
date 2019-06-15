@@ -5,6 +5,7 @@ import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import _get from 'lodash/get';
 import { parse } from 'query-string';
+import { Link } from 'react-router-dom';
 import { contentActions } from '../actions';
 import {
   selectorContentItems, selectorContentLoading, selectorContentError, selectorContentHasMore,
@@ -12,7 +13,7 @@ import {
 import { Layout } from './Layout';
 import { ContentItem, LoadMore } from '../components';
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 6;
 
 const qFromProps = props => _get(parse(_get(props, 'location.search', '').substr(1)), 'q', '');
 
@@ -66,14 +67,20 @@ class Home extends PureComponent {
     return (
       <Layout>
         {!loading && !!error && <p className="errorbox">{error}</p>}
-        {loading && <p className="infobox">Loading...</p>}
-        {!loading && !error && !items.length && <p className="infobox">Nothing found</p>}
-        {!loading && !!items.length && (
+        {!loading && !error && !items.length && (
+          <p className="infobox">
+            <span>Nothing found.</span>
+            &nbsp;
+            <Link to="/"><strong>Clear filters</strong></Link>
+          </p>
+        )}
+        {!!items.length && (
           <div className="content">
             {items.map(item => <ContentItem {...item} key={item.id} />)}
           </div>
         )}
         {!loading && !error && hasMore && <LoadMore onLoadMore={this.handleLoadMore} />}
+        {loading && <p className="infobox">Loading...</p>}
       </Layout>
     );
   }

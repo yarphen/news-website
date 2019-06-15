@@ -26,10 +26,10 @@ class Header extends PureComponent {
           <div className="header-sandwich fas fa-bars" onClick={this.handleOpenSidebar} />
         </div>
         <div className="nav-menu">
-          <div className="nav-menu-item"><Link to="/news">News</Link></div>
-          <div className="nav-menu-item"><Link to="/regions">Regions</Link></div>
-          <div className="nav-menu-item"><Link to="/video">Video</Link></div>
-          <div className="nav-menu-item"><Link to="/tv">TV</Link></div>
+          <Link to="/news" className="nav-menu-item">News</Link>
+          <Link to="/regions" className="nav-menu-item">Regions</Link>
+          <Link to="/video" className="nav-menu-item">Video</Link>
+          <Link to="/tv" className="nav-menu-item">TV</Link>
           <Search />
         </div>
       </div>

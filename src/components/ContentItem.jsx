@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextEllipsis from 'react-text-ellipsis';
+import LinesEllipsis from 'react-lines-ellipsis';
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
+import MediaQuery from 'react-responsive';
 
 import { formatDate } from '../util/format';
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 export const ContentItem = (props) => {
   const {
@@ -12,19 +16,21 @@ export const ContentItem = (props) => {
   return (
     <div className="content-item">
       <div className="content-item-desktop-title"><a href="#">{title}</a></div>
-      <div className="content-item-image"><a href="#"><img src={image} /></a></div>
+      <a href="#"><div className="content-item-image" style={{ backgroundImage: `url(${image})` }} /></a>
       <div className="content-item-article">
         <div className="content-item-mobile-title"><a href="#">{title}</a></div>
         <div className="content-item-text">
-          <TextEllipsis
-            lines={10}
-            tag="p"
-            ellipsisChars="..."
-            tagClass="className"
-            debounceTimeoutOnResize={200}
-            useJsOnly>
-            {text}
-          </TextEllipsis>
+          <MediaQuery query="(min-width: 768px)">
+            {isDesktop => (
+              <ResponsiveEllipsis
+                text={text}
+                maxLine={isDesktop ? 10 : 5}
+                ellipsis="..."
+                trimRight
+                basedOn="letters"
+              />
+            )}
+          </MediaQuery>
         </div>
         <div className="content-item-updated">
           <span>Updated: </span>
