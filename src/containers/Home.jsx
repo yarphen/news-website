@@ -3,25 +3,23 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
-import _get from 'lodash/get';
-import { parse } from 'query-string';
-import { Link } from 'react-router-dom';
 import { contentActions } from '../actions';
 import {
   selectorContentItems, selectorContentLoading, selectorContentError, selectorContentHasMore,
 } from '../selectors';
 import { Layout } from './Layout';
 import { ContentItem, LoadMore } from '../components';
+import { ClearFilters } from '../components/ClearFilters';
+import { qFromProps } from '../util';
 
 const ITEMS_PER_PAGE = 6;
-
-const qFromProps = props => _get(parse(_get(props, 'location.search', '').substr(1)), 'q', '');
 
 class Home extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { limit: ITEMS_PER_PAGE, offset: 0 };
     this.handleLoadMore = this.handleLoadMore.bind(this);
+    this.handleClearFilters = this.handleClearFilters.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +38,6 @@ class Home extends PureComponent {
     if (q !== oldQ) {
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ limit: ITEMS_PER_PAGE, offset: 0 }, () => {
-        console.log(q, oldQ);
         actions.content.clearItems();
         actions.content.fetchItems({
           q, tag, limit: ITEMS_PER_PAGE, offset: 0,
@@ -60,27 +57,40 @@ class Home extends PureComponent {
     });
   }
 
+  handleClearFilters() {
+    const { actions, tag, history } = this.props;
+    this.setState({ limit: ITEMS_PER_PAGE, offset: 0 }, () => {
+      actions.content.clearItems();
+      const q = qFromProps(this.props);
+      if (!q && !tag) {
+        actions.content.fetchItems({
+          q: '', tag: null, limit: ITEMS_PER_PAGE, offset: 0,
+        });
+      }
+      history.push('/');
+    });
+  }
+
   render() {
     const {
       items, loading, error, hasMore,
     } = this.props;
     return (
       <Layout>
-        {!loading && !!error && <p className="errorbox">{error}</p>}
-        {!loading && !error && !items.length && (
-          <p className="infobox">
-            <span>Nothing found.</span>
-            &nbsp;
-            <Link to="/"><strong>Clear filters</strong></Link>
-          </p>
-        )}
-        {!!items.length && (
-          <div className="content">
-            {items.map(item => <ContentItem {...item} key={item.id} />)}
-          </div>
-        )}
-        {!loading && !error && hasMore && <LoadMore onLoadMore={this.handleLoadMore} />}
-        {loading && <p className="infobox">Loading...</p>}
+        <div className="content-wrapper">
+          {!!items.length && (
+            <div className="content">
+              {items.map(item => <ContentItem {...item} key={item.id} />)}
+            </div>
+          )}
+          {!loading && !!error && <p className="errorbox">{error}</p>}
+          {!loading && !error && !items.length && (
+            <p className="infobox">Nothing found.</p>
+          )}
+          {!loading && !error && hasMore && <LoadMore onLoadMore={this.handleLoadMore} />}
+          {!loading && !error && !hasMore && <ClearFilters onClearFilters={this.handleClearFilters} />}
+          {loading && <p className="infobox">Loading...</p>}
+        </div>
       </Layout>
     );
   }
@@ -89,6 +99,7 @@ class Home extends PureComponent {
 Home.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
   actions: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
   tag: PropTypes.string,
   loading: PropTypes.bool,
   hasMore: PropTypes.bool,

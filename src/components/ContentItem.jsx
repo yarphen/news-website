@@ -16,7 +16,7 @@ export const ContentItem = (props) => {
   return (
     <div className="content-item">
       <div className="content-item-desktop-title"><a href="#">{title}</a></div>
-      <a href="#"><div className="content-item-image" style={{ backgroundImage: `url(${image})` }} /></a>
+      <div className="content-item-image" style={{ backgroundImage: `url(${image})` }} />
       <div className="content-item-article">
         <div className="content-item-mobile-title"><a href="#">{title}</a></div>
         <div className="content-item-text">

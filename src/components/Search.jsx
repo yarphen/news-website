@@ -23,7 +23,6 @@ class Search extends PureComponent {
   }
 
   render() {
-    console.log(this.props);
     const { searchText } = this.state;
     return (
       <div className="search">
