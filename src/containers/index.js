@@ -1,2 +1,2 @@
-export * from './MyContainer';
+export * from './Home';
 export * from './NotFound';

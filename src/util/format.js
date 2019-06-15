@@ -1,20 +1,3 @@
-export const formatData = (data, messages) => {
-  const {
-    result, loading,
-    initial, error,
-  } = data || {};
-  const {
-    loading: messageLoading,
-    initial: messageInitial,
-  } = messages || {};
-  if (initial) {
-    return messageInitial;
-  }
-  if (loading) {
-    return messageLoading;
-  }
-  if (error) {
-    return error;
-  }
-  return result;
-};
+import moment from 'moment';
+
+export const formatDate = date => moment(date).format('YYYY-MM-DD, HH:mm');
