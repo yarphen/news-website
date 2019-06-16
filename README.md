@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.com/yarphen/news-website.svg?branch=master)](https://travis-ci.com/yarphen/news-website)
 
-# News Website
+# [News Website](https://news-website-yarphen.appspot.com/)
 
-Sample news website (with mocked data)
+Sample news website (with mocked data). 
 
 ## How to run
 

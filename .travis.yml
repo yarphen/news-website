@@ -4,6 +4,7 @@ node_js:
 script:
 - npm run lint
 - npm test
+- NODE_ENV=production npm run build
 deploy:
   provider: gae
   keyfile: news-website-90f33112875a.json
