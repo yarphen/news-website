@@ -1,7 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CreateFileWebpack = require('create-file-webpack');
 const path = require('path');
+
+const { version } = require('../package');
 
 const isProd = process.env.NODE_ENV === 'production';
 const port = parseInt(process.env.PORT, 10) || 3000;
@@ -55,6 +58,11 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'static', to: '.' },
     ]),
+    new CreateFileWebpack({
+      path: path.join(process.cwd(), 'dist'),
+      fileName: 'version.json',
+      content: JSON.stringify({ version }),
+    }),
   ],
   resolve: {
     extensions: ['.js', '.json', '.jsx'],

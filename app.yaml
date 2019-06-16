@@ -17,6 +17,18 @@ handlers:
 - url: /main.js
   static_files: dist/main.js
   upload: dist/main.js
+- url: /sw.js
+  static_files: dist/sw.js
+  upload: dist/sw.js
+- url: /manifest.json
+  static_files: dist/manifest.json
+  upload: dist/manifest.json
+- url: /version.json
+  static_files: dist/version.json
+  upload: dist/version.json
+- url: /favicon.ico
+  static_files: dist/favicon.ico
+  upload: dist/favicon.ico
 - url: /(.*)$
   static_files: dist/index.html
   upload: dist/index.html

@@ -1,0 +1,42 @@
+{
+    "short_name": "News",
+    "name": "News Website",
+    "icons": [
+        {
+          "src": "/images/res/mipmap-mdpi/favicon.png",
+          "type": "image/png",
+          "sizes": "48x48"
+        },
+        {
+          "src": "/images/res/mipmap-hdpi/favicon.png",
+          "type": "image/png",
+          "sizes": "72x72"
+        },
+        {
+          "src": "/images/res/mipmap-xhdpi/favicon.png",
+          "type": "image/png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "/images/res/mipmap-xxhdpi/favicon.png",
+          "type": "image/png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "/images/res/mipmap-xxxhdpi/favicon.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "/images/web_hi_res_512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#00A192",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#00A192"
+  }
+  

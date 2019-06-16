@@ -8,6 +8,7 @@ import { store, history } from './store';
 import {
   Home, News, Regions, Video, TV, NotFound,
 } from './containers';
+import { swInstall } from './sw-install';
 
 import './css/app.css';
 
@@ -26,3 +27,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
+
+swInstall();
