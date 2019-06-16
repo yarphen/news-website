@@ -4,3 +4,11 @@ node_js:
 script:
 - npm run lint
 - npm test
+deploy:
+  provider: gae
+  keyfile: news-website-90f33112875a.json
+  project: news-website-yarphen
+  skip_cleanup: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_aaf5131a9096_key -iv $encrypted_aaf5131a9096_iv
+  -in news-website-90f33112875a.json.enc -out news-website-90f33112875a.json -d
