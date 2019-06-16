@@ -5,6 +5,7 @@ skip_files:
  - ^node_modules$
  - ^src$
  - ^static$
+ - ^tests$
  - ^.git$
 handlers:
 - url: /images/(.*)$

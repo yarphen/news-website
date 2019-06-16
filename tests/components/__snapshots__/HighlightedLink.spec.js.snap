@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HighlightedLink component it matches the snapshot 1`] = `
+<a
+  href="/"
+  onClick={[Function]}
+/>
+`;

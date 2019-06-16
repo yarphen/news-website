@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component it matches the snapshot 1`] = `
+<div
+  className="footer-wrapper"
+>
+  <div
+    className="footer"
+  >
+    <div
+      className="footer-left"
+    >
+      <div
+        className="footer-left-item"
+      >
+        <div
+          className="footer-left-item-wrapper"
+        >
+          <a
+            href="/news"
+            onClick={[Function]}
+          >
+            News
+          </a>
+        </div>
+      </div>
+      <div
+        className="footer-left-item"
+      >
+        <div
+          className="footer-left-item-wrapper"
+        >
+          <a
+            href="/regions"
+            onClick={[Function]}
+          >
+            Regions
+          </a>
+        </div>
+      </div>
+      <div
+        className="footer-left-item"
+      >
+        <div
+          className="footer-left-item-wrapper"
+        >
+          <a
+            href="/video"
+            onClick={[Function]}
+          >
+            Video
+          </a>
+        </div>
+      </div>
+      <div
+        className="footer-left-item"
+      >
+        <div
+          className="footer-left-item-wrapper"
+        >
+          <a
+            href="/tv"
+            onClick={[Function]}
+          >
+            TV
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="footer-right"
+    >
+      Copyright © yarphen
+    </div>
+  </div>
+</div>
+`;

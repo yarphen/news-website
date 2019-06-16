@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClearFilters component it matches the snapshot 1`] = `
+<div
+  className="clear-filters"
+>
+  <div
+    className="clear-filters-btn"
+    onClick={[Function]}
+  >
+    Clear Filters
+  </div>
+</div>
+`;

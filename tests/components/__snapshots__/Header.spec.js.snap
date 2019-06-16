@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component it matches the snapshot 1`] = `
+<div
+  className="header-wrapper"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <div
+      className="big-header-logo fas fa-registered"
+    />
+  </a>
+  <div
+    className="mobile-header"
+  >
+    <div
+      className="header-title"
+    >
+      Home
+    </div>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <div
+        className="header-logo fas fa-registered"
+      />
+    </a>
+    <div
+      className="header-sandwich fas fa-bars"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="nav-menu"
+  >
+    <a
+      className="nav-menu-item"
+      href="/news"
+      onClick={[Function]}
+    >
+      News
+    </a>
+    <a
+      className="nav-menu-item"
+      href="/regions"
+      onClick={[Function]}
+    >
+      Regions
+    </a>
+    <a
+      className="nav-menu-item"
+      href="/video"
+      onClick={[Function]}
+    >
+      Video
+    </a>
+    <a
+      className="nav-menu-item"
+      href="/tv"
+      onClick={[Function]}
+    >
+      TV
+    </a>
+    <div
+      className="search"
+    >
+      <input
+        className="search-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <div
+        className="search-input-icon fas fa-search"
+      />
+    </div>
+  </div>
+</div>
+`;
