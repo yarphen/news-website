@@ -19,12 +19,12 @@ class Layout extends PureComponent {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, title } = this.props;
     const { sidebarOpen } = this.state;
     return (
       <div className="container">
         <Sidebar isOpen={sidebarOpen} onClose={this.handleCloseSidebar} />
-        <Header onOpenSidebar={this.handleOpenSidebar} />
+        <Header onOpenSidebar={this.handleOpenSidebar} title={title} />
         {children}
         <Footer />
       </div>
@@ -33,7 +33,8 @@ class Layout extends PureComponent {
 }
 
 Layout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.any,
+  title: PropTypes.string.isRequired,
 };
 
 Layout.defaultProps = {

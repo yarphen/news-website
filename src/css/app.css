@@ -114,6 +114,10 @@ h1 {
   align-items: center;
 }
 
+.sidebar-item-active {
+  background-color:  #00736c;
+}
+
 .sidebar-item:last-of-type {
   border-bottom: none;
 }
@@ -308,6 +312,11 @@ h1 {
 
   .nav-menu-item:hover {
     font-size: 18px;
+  }
+
+  .nav-menu-item-active {
+    font-size: 18px;
+    background-color: #009786;
   }
 
   .mobile-header {

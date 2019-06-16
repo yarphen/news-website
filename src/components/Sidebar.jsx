@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import enhanceWithClickOutside from 'react-click-outside';
+import { HighlightedLink as Link } from './HighlightedLink';
 
 class Sidebar extends PureComponent {
   constructor(props) {
@@ -17,13 +17,15 @@ class Sidebar extends PureComponent {
 
   render() {
     const { isOpen } = this.props;
+    const normalLink = { className: 'sidebar-item' };
+    const activeLink = { className: 'sidebar-item sidebar-item-active' };
     return (
       <div className={classnames('sidebar', { 'sidebar-hidden': !isOpen })}>
         <div className="sidebar-inset">
-          <Link className="sidebar-item" to="/news">News</Link>
-          <Link className="sidebar-item" to="/regions">Regions</Link>
-          <Link className="sidebar-item" to="/video">Video</Link>
-          <Link className="sidebar-item" to="/tv">TV</Link>
+          <Link to="/news" ifMatches={activeLink} ifDoesNotMatch={normalLink}>News</Link>
+          <Link to="/regions" ifMatches={activeLink} ifDoesNotMatch={normalLink}>Regions</Link>
+          <Link to="/video" ifMatches={activeLink} ifDoesNotMatch={normalLink}>Video</Link>
+          <Link to="/tv" ifMatches={activeLink} ifDoesNotMatch={normalLink}>TV</Link>
           <span className="sidebar-footer-item">Copyright &copy; yarphen</span>
         </div>
       </div>

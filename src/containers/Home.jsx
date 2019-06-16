@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { contentActions } from '../actions';
 import {
   selectorContentItems, selectorContentLoading, selectorContentError, selectorContentHasMore,
@@ -73,10 +74,13 @@ class Home extends PureComponent {
 
   render() {
     const {
-      items, loading, error, hasMore,
+      items, loading, error, hasMore, title,
     } = this.props;
     return (
-      <Layout>
+      <Layout title={title}>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <div className="content-wrapper">
           {!!items.length && (
             <div className="content">
@@ -104,6 +108,7 @@ Home.propTypes = {
   loading: PropTypes.bool,
   hasMore: PropTypes.bool,
   error: PropTypes.string,
+  title: PropTypes.string,
 };
 
 Home.defaultProps = {
@@ -112,6 +117,7 @@ Home.defaultProps = {
   loading: false,
   error: null,
   hasMore: true,
+  title: 'Home',
 };
 
 const mapStateToProps = createSelector(

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const withTag = tagName => (WrappedComponent) => {
-  const ModalWrapper = props => <WrappedComponent {...props} tag={tagName} />;
+const withTagAndTitle = ({ tagName, title }) => (WrappedComponent) => {
+  const ModalWrapper = props => <WrappedComponent {...props} tag={tagName} title={title} />;
   return ModalWrapper;
 };
 
-export { withTag };
+export { withTagAndTitle };
