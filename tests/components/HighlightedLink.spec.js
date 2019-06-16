@@ -8,7 +8,7 @@ import { HighlightedLink } from '../../src/components';
 describe('HighlightedLink component', () => {
   test('it matches the snapshot', () => {
     const component = create(
-      <Provider store={store}><MemoryRouter><HighlightedLink /></MemoryRouter></Provider>,
+      <Provider store={store}><MemoryRouter><HighlightedLink to="/" /></MemoryRouter></Provider>,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });

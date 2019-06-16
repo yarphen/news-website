@@ -9,7 +9,7 @@ import { store } from '../../src/store';
 describe('Layout container', () => {
   test('it matches the snapshot', () => {
     const container = create(
-      <Provider store={store}><MemoryRouter><Layout /></MemoryRouter></Provider>,
+      <Provider store={store}><MemoryRouter><Layout title="Home" /></MemoryRouter></Provider>,
     );
     expect(container.toJSON()).toMatchSnapshot();
   });

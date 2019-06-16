@@ -5,7 +5,7 @@ import { Header } from '../../src/components';
 
 describe('Header component', () => {
   test('it matches the snapshot', () => {
-    const component = create(<MemoryRouter><Header /></MemoryRouter>);
+    const component = create(<MemoryRouter><Header title="Home" /></MemoryRouter>);
     expect(component.toJSON()).toMatchSnapshot();
   });
 });

@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import { contentActions } from '../actions';
 import {
   selectorContentItems, selectorContentLoading, selectorContentError, selectorContentHasMore,
@@ -78,9 +77,6 @@ class Home extends PureComponent {
     } = this.props;
     return (
       <Layout title={title}>
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
         <div className="content-wrapper">
           {!!items.length && (
             <div className="content">

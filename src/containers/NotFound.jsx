@@ -4,7 +4,7 @@ import { Layout } from './Layout';
 class NotFound extends PureComponent {
   render() {
     return (
-      <Layout>
+      <Layout title="Not Found">
         <h1>404. Not Found</h1>
       </Layout>
     );

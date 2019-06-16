@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { Sidebar, Header, Footer } from '../components';
 
 class Layout extends PureComponent {
@@ -23,6 +24,9 @@ class Layout extends PureComponent {
     const { sidebarOpen } = this.state;
     return (
       <div className="container">
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <Sidebar isOpen={sidebarOpen} onClose={this.handleCloseSidebar} />
         <Header onOpenSidebar={this.handleOpenSidebar} title={title} />
         {children}
